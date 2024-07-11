@@ -3,6 +3,7 @@ import connectDB from './lib/db.js';
 import projectRoutes from './routes/projectRoutes.js';
 import dotenv from 'dotenv';
 import chalk from 'chalk';
+import cors from 'cors';
 
 dotenv.config();
 
@@ -13,6 +14,8 @@ connectDB();
 
 // Middleware
 app.use(express.json());
+app.use(cors()); 
+
 
 // Routes
 app.use('/projects', projectRoutes);
