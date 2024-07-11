@@ -1,6 +1,6 @@
 import express from 'express';
-import connectDB from './config/db.js'; 
-import itemRoutes from './routes/itemRoutes.js';
+import connectDB from './lib/db.js'; 
+import projectRoutes from './routes/projectRoutes.js';
 import dotenv from 'dotenv';
 import chalk from 'chalk';
 
@@ -15,7 +15,7 @@ connectDB();
 app.use(express.json());
 
 // Routes
-app.use('/api/items', itemRoutes);
+app.use('/projects', projectRoutes);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

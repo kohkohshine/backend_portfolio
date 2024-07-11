@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const itemSchema = new mongoose.Schema({
+const projectSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
@@ -12,6 +12,6 @@ const itemSchema = new mongoose.Schema({
     }
 });
 
-const Item = mongoose.model('Item', itemSchema);
+const Project = mongoose.model('Project', projectSchema);
 
-export default Item;
+export default Project;

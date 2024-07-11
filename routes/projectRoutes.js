@@ -1,13 +1,13 @@
 import express from 'express';
-import Item from '../models/item.js';
+import Project from '../models/project.js';
 
 const router = express.Router();
 
 // Get all items
 router.get('/', async (req, res) => {
     try {
-        const items = await Item.find();
-        res.json(items);
+        const projects = await Project.find();
+        res.json(projects);
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
@@ -15,15 +15,15 @@ router.get('/', async (req, res) => {
 
 // Create a new item
 router.post('/', async (req, res) => {
-    const item = new Item({
+    const project = new Project({
         name: req.body.name,
         description: req.body.description,
         price: req.body.price,
     });
 
     try {
-        const newItem = await item.save();
-        res.status(201).json(newItem);
+        const newProject = await project.save();
+        res.status(201).json(newProject);
     } catch (error) {
         res.status(400).json({ message: error.message });
     }
