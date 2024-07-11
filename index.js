@@ -1,6 +1,7 @@
 import express from 'express';
 import connectDB from './lib/db.js'; 
 import projectRoutes from './routes/projectRoutes.js';
+import authRoutes from './routes/authRoutes.js';
 import dotenv from 'dotenv';
 import chalk from 'chalk';
 import cors from 'cors';
@@ -19,7 +20,7 @@ app.use(cors());
 
 // Routes
 app.use('/projects', projectRoutes);
-app.use('auth',authRoutes)
+app.use('/auth',authRoutes)
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
