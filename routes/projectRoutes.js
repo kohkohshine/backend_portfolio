@@ -1,10 +1,11 @@
 import express from 'express';
 import Project from '../models/project.js';
+import auth from '../middleware/auth.js';
 
 const router = express.Router();
 
 // Get all items
-router.get('/', async (req, res) => {
+router.get('/',auth, async (req, res) => {
     try {
         const projects = await Project.find();
         res.json(projects);
@@ -14,7 +15,7 @@ router.get('/', async (req, res) => {
 });
 
 // Create a new item
-router.post('/', async (req, res) => {
+router.post('/',auth, async (req, res) => {
     const project = new Project({
         name: req.body.name,
         description: req.body.description,
