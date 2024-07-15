@@ -20,7 +20,7 @@ app.use(cors());
 
 // Routes
 app.use('/projects', projectRoutes);
-app.use('/auth',authRoutes)
+//app.use('/auth',authRoutes)
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
